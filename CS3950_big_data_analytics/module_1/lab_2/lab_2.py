@@ -1,5 +1,7 @@
 "Module 2 lab 2 assignment"
 
+import random
+
 # Create a tuple with numbers and print one item
 t = (1, 2, 3, 4, 5)
 print(f"Item at index 2: {t[2]}")
@@ -33,11 +35,11 @@ print(f"Reversed tuple: {t}")
 # Sum all the items in a list
 l = [1, 2, 3, 4, 5]
 
-sum = 0
+sum_list = 0
 for item in l:
     if isinstance(item, int):
-        sum += item
-print(f"Sum of all items in the list: {sum}")
+        sum_list += item
+print(f"Sum_list of all items in the list: {sum_list}")
 # Remove duplicates from a list.
 l = [1, 2, 3, 4, 5, 1, 2, 3]
 l = list(set(l))
@@ -87,9 +89,61 @@ print(f"Union of sets: {union_of_sets}")
 
 # Write a Python function to multiply all the numbers in a list.
 def multiply_all_numbers(l):
+    """
+    Multiply all the numbers in a list.
+    Args:
+        l (list): List of numbers.
+    Returns:
+        int: Multiplication of all numbers in the list.
+    """
     result = 1
     for item in l:
         if isinstance(item, int):
             result *= item
     return result
-print(f"Multiplication of all numbers in the list: {multiply_all_numbers([1, 2, 3, 4, 5])}")
+
+
+print(
+    f"Multiplication of all numbers in the list: {multiply_all_numbers([1, 2, 3, 4, 5])}"
+)
+# Generate a list of scores. After doing so, write a function that finds the min, max, and average.
+scores = [random.randint(0, 100) for _ in range(10)]
+
+
+def find_min_max_avg(scores: list):
+    """
+    Find the minimum, maximum, and average of a list of scores.
+    Args:
+        scores (list): List of scores.
+    Returns:
+        tuple: Minimum, maximum, and average of the scores.
+    """
+    min_score = min(scores)
+    max_score = max(scores)
+    avg_score = sum(scores) / len(scores)
+    return min_score, max_score, avg_score
+
+
+print(f"Scores: {scores}")
+min_score, max_score, avg_score = find_min_max_avg(scores)
+print(f"Min: {min_score}, Max: {max_score}, Avg: {avg_score}")
+
+
+# Write a Python function to check whether a number is in a given range.
+def is_in_range(num: int, start: int, end: int):
+    """
+    Check whether a number is in a given range.
+    Args:
+        num (int): Number to check.
+        start (int): Start of the range.
+        end (int): End of the range.
+    Returns:
+        bool: True if the number is in the range, False otherwise.
+    """
+    if isinstance(num, int) and isinstance(start, int) and isinstance(end, int):
+        return start <= num <= end
+    return False
+
+
+print(f"Is 5 in the range 1-10: {is_in_range(5, 1, 10)}")
+print(f"Is 15 in the range 1-10: {is_in_range(15, 1, 10)}")
