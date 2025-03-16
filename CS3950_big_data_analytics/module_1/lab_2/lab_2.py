@@ -147,3 +147,39 @@ def is_in_range(num: int, start: int, end: int):
 
 print(f"Is 5 in the range 1-10: {is_in_range(5, 1, 10)}")
 print(f"Is 15 in the range 1-10: {is_in_range(15, 1, 10)}")
+# Generate a nested list with dog breed and max running speed. After doing so, write a function that finds the maximum and minimum speed based on dog breed.
+dog_speeds = [
+    ["Greyhound", 45],
+    ["Saluki", 42],
+    ["Vizsla", 40],
+    ["Jack Russell Terrier", 38],
+    ["Dalmatian", 37],
+    ["Borzoi", 36],
+    ["Whippet", 35],
+    ["Doberman Pinscher", 32],
+    ["Border Collie", 30],
+    ["Golden Retriever", 25],
+]
+
+
+def find_max_min_speed(dog_list):
+    """
+    Finds the dog breeds with the maximum and minimum running speeds.
+
+    Parameters:
+    dog_list (list): A list of lists where each sublist contains a dog breed and its maximum speed.
+
+    Returns:
+    tuple: A tuple containing two lists - the fastest and slowest dog breed with their respective speeds.
+    """
+    max_speed_dog = max(dog_list, key=lambda x: x[1])
+    min_speed_dog = min(dog_list, key=lambda x: x[1])
+
+    return max_speed_dog, min_speed_dog
+
+
+# unpack the function output tuple
+max_dog, min_dog = find_max_min_speed(dog_speeds)
+# print the fastest and slowest dog breed with their respective speeds
+print(f"Fastest dog: {max_dog[0]} with a speed of {max_dog[1]} mph")
+print(f"Slowest dog: {min_dog[0]} with a speed of {min_dog[1]} mph")
