@@ -1,4 +1,4 @@
-"Module 2 lab 2 assignment"
+"Module 1 lab 2 assignment"
 
 import random
 
